@@ -12,7 +12,7 @@ const UserBlocked = new Set();
 const prefix = 'r!'
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  //client.user.setActivity("*help | *invite ", {type: 'PLAYING'});
+  client.user.setActivity(`Type : r!info`,`http://www.twitch.tv/S-F`);
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -73,6 +73,27 @@ client.on('message', function(message) {
             .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
         client.channels.get("564172007701348362").send({ embed: stewart });
     }
+});
+
+//--
+
+client.on('message', message => {
+    if (message.content === ('r!info')) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .addField('**سرعة السيرفر 🚀 :**' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('**الحالة 📚 :**', `**Online √ **`, true)
+            .addField('**الأيبي : 📝 :**' , `**mtasa://176.31.116.30:30915**` , true)
+            .addField('**خادم :**' , `__**OGP**__` , true)
+            .addField('**نوع اللعب 🔮 :**' ,`Roleplay` , true)
+            .addField('**اسم السيرفر 🔰 :**' , `GMZN Roleplay` , true)
+            .addField('**صاحب ومبرمج السيرفر 👑 :**' , `[<@525660958761156638>]` , true)
+            .setFooter(message.author.username, message.author.avatarURL)
+    })
+}
 });
 
 client.login(process.env.BOT_TOKEN);
