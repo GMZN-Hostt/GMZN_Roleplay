@@ -12,7 +12,7 @@ const UserBlocked = new Set();
 const prefix = 'r!'
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("Type : r!info",{type:'LISTENING'});
+  client.user.setActivity("Type : r!info", {type:'LISTENING'});
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
